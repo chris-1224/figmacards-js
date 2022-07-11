@@ -1,7 +1,7 @@
 const cardDetails = [
   {
     id: 1,
-    icon:"img/i1.png",
+    icon: "img/i1.png",
     title: "GRN approval",
     desc_id: "WF_PO_PROCESSING_STD2",
     card1_p: "Leave application for admin approval",
@@ -10,7 +10,7 @@ const cardDetails = [
   },
   {
     id: 2,
-    icon:"img/i1.png",
+    icon: "img/i1.png",
     title: "ASN approval",
     desc_id: "WF_PO_PROCESSING_STD2",
     card1_p: "Leave application for admin approval",
@@ -19,7 +19,7 @@ const cardDetails = [
   },
   {
     id: 3,
-    icon:"img/i2.png",
+    icon: "img/i2.png",
     title: "Quotation approval",
     desc_id: "WF_PO_PROCESSING_STD2",
     card1_p: "Leave application for admin approval",
@@ -28,7 +28,7 @@ const cardDetails = [
   },
   {
     id: 4,
-    icon:"img/i3.png",
+    icon: "img/i3.png",
     title: "Purchase order...",
     desc_id: "WF_PO_PROCESSING_STD2",
     card1_p: "Leave application for admin approval",
@@ -37,7 +37,7 @@ const cardDetails = [
   },
   {
     id: 5,
-    icon:"img/i2.png",
+    icon: "img/i2.png",
     title: "GRN approval",
     desc_id: "WF_PO_PROCESSING_STD2",
     card1_p: "Leave application for admin approval",
@@ -46,7 +46,7 @@ const cardDetails = [
   },
   {
     id: 6,
-    icon:"img/i3.png",
+    icon: "img/i3.png",
     title: "ASN approval",
     desc_id: "WF_PO_PROCESSING_STD2",
     card1_p: "Leave application for admin approval",
@@ -55,7 +55,7 @@ const cardDetails = [
   },
   {
     id: 7,
-    icon:"img/i4.png",
+    icon: "img/i4.png",
     title: "Quotation approval",
     desc_id: "WF_PO_PROCESSING_STD2",
     card1_p: "Leave application for admin approval",
@@ -64,7 +64,7 @@ const cardDetails = [
   },
   {
     id: 8,
-    icon:"img/i1.png",
+    icon: "img/i1.png",
     title: "Purchase order...",
     desc_id: "WF_PO_PROCESSING_STD2",
     card1_p: "Leave application for admin approval",
@@ -73,7 +73,7 @@ const cardDetails = [
   },
   {
     id: 9,
-    icon:"img/i2.png",
+    icon: "img/i2.png",
     title: "GRN approval",
     desc_id: "WF_PO_PROCESSING_STD2",
     card1_p: "Leave application for admin approval",
@@ -82,7 +82,7 @@ const cardDetails = [
   },
   {
     id: 10,
-    icon:"img/i1.png",
+    icon: "img/i1.png",
     title: "ASN approval",
     desc_id: "WF_PO_PROCESSING_STD2",
     card1_p: "Leave application for admin approval",
@@ -91,7 +91,7 @@ const cardDetails = [
   },
   {
     id: 11,
-    icon:"img/i4.png",
+    icon: "img/i4.png",
     title: "Quotation approval",
     desc_id: "WF_PO_PROCESSING_STD2",
     card1_p: "Leave application for admin approval",
@@ -100,7 +100,7 @@ const cardDetails = [
   },
   {
     id: 12,
-    icon:"img/i3.png",
+    icon: "img/i3.png",
     title: "Purchase order...",
     desc_id: "WF_PO_PROCESSING_STD2",
     card1_p: "Leave application for admin approval",

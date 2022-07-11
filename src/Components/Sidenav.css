@@ -77,7 +77,7 @@
 .contentGrid {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-  row-gap: 0px;
+  gap: 20px !important;
   column-gap: 0px;
 }
 
@@ -86,6 +86,11 @@
   cursor: pointer;
   box-shadow: 0 0 5px 2px rgb(214, 233, 255);
   margin-right: 15px;
+}
+.card1:hover {
+  border-style: solid;
+  border-color: rgb(82, 163, 255);
+  border-width: 2 rem;
 }
 
 .ant-card-body {
@@ -149,4 +154,18 @@
 }
 .site-card-border-less-wrapper img {
   width: 38px;
+}
+.card2btn {
+  width: 120px !important;
+  float: right;
+  margin-top: 10px !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+  border-radius: 8px;
+}
+.card2hp {
+  font-size: 12px;
+}
+.ant-layout-content {
+  margin: 10px;
 }
