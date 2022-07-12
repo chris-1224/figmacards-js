@@ -1,7 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
 import { Layout, Menu } from "antd";
-import { Input, Button } from "antd";
+// import { Input } from "antd";
 import "./Sidenav.css";
 import { Col, Row } from "antd";
 
@@ -18,8 +18,9 @@ import img7 from "../images/img7.svg";
 import img8 from "../images/img8a.png";
 import img9 from "../images/img9.svg";
 
-const { Header, Sider } = Layout;
-const { Search } = Input;
+import CreateWorkflow from "./CreateWorkflow.tsx";
+
+const { Sider } = Layout;
 
 function Sidenav() {
   return (
@@ -58,20 +59,7 @@ function Sidenav() {
           </div>
         </Sider>
         <Layout>
-          <Header>
-            <div className="abc">
-              <p className="lefthead">Workflow</p>
-              <Search
-                className="abc1"
-                placeholder="Search a workflow"
-                onSearch={(value) => console.log(value)}
-                style={{ width: 200 }}
-              />
-              <Button className="abc2" type="primary">
-                Create Workflow
-              </Button>
-            </div>
-          </Header>
+          <CreateWorkflow />
           <div className="tet">
             {cardDetails.map((card: any) => {
               // console.log(card.title);

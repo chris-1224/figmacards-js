@@ -4,13 +4,20 @@
   justify-content: space-between;
 }
 .abc1 {
+  height: 40px;
+  border-radius: 12px;
+  margin-left: 160px !important;
+  width: 300px !important;
   margin-top: 20px;
 }
 .abc2 {
   margin-right: 20px;
 }
 .tet {
+  margin-left: 0px !important;
   display: grid;
+  /* display: flex;
+  flex-wrap: wrap; */
   grid-template-columns: 25% 25% 25% 25%;
 }
 .Sidenav {
@@ -30,7 +37,7 @@
   height: 70px;
 }
 .midicon {
-  margin-top: 60px;
+  margin-top: 120px;
 }
 .midicon img {
   width: 40px;
@@ -84,7 +91,7 @@
 .card1 {
   border-radius: 20px;
   cursor: pointer;
-  box-shadow: 0 0 5px 2px rgb(214, 233, 255);
+  box-shadow: 0 0 5px 2px rgb(184, 214, 249);
   margin-right: 15px;
 }
 .card1:hover {
@@ -164,8 +171,22 @@
   border-radius: 8px;
 }
 .card2hp {
-  font-size: 12px;
+  font-size: 14px;
 }
 .ant-layout-content {
   margin: 10px;
+}
+.dltbtn {
+  margin: 10px 0px 0px 50px !important;
+  border-radius: 8px;
+}
+.ant-input-group-wrapper {
+  margin-left: 180px !important;
+}
+.ant-btn-primary {
+  margin-left: 120px;
+  border-radius: 8px;
+}
+.lefthead {
+  margin-left: 10px;
 }

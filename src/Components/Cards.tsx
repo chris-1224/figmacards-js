@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "antd/dist/antd.css";
 import { Layout } from "antd";
 import { Col, Row, Button } from "antd";
 import { Card } from "antd";
-import { useState } from "react";
 
 import "./Sidenav.css";
 
@@ -27,7 +26,7 @@ const Cards = (props: card_det_props) => {
     <Content style={{ margin: "20px 10px" }}>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
         <Col className="gutter-row" span={6}>
-          <Card style={{ width: 270, height: 140 }} className="card1">
+          <Card style={{ width: 300, height: 140 }} className="card1">
             {isActive && (
               <div
                 className="site-card-border-less-wrapper"
@@ -39,7 +38,7 @@ const Cards = (props: card_det_props) => {
                   </Col>
                   <Col span={18}>
                     <h3 className="cardTitle">{props.title}</h3>
-                    <p className="cardPara">{props.description}</p>
+                    <p className="cardPara">{props.desc_id}</p>
                     <p className="cardSpan">{props.card1_p}</p>
                   </Col>
                 </Row>
@@ -48,6 +47,7 @@ const Cards = (props: card_det_props) => {
             {!isActive && (
               <div className="hoverdis" onMouseLeave={handleMousecard}>
                 <p className="card2hp"> {props.card2_p} </p>
+                <Button className="dltbtn">Delete</Button>
                 <Button type="primary" className="card2btn">
                   View Details
                 </Button>
