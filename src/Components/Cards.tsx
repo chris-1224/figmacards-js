@@ -26,7 +26,7 @@ const Cards = (props: card_det_props) => {
     <Content style={{ margin: "20px 10px" }}>
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
         <Col className="gutter-row" span={6}>
-          <Card style={{ width: 300, height: 140 }} className="card1">
+          <Card style={{ width: 280, height: 140 }} className="card1">
             {isActive && (
               <div
                 className="site-card-border-less-wrapper"

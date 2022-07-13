@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Button, Modal, Checkbox, Form } from "antd";
+import { Input, Button, Modal, Form } from "antd";
 import { Layout } from "antd";
 import { Col, Row } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
@@ -36,7 +36,7 @@ function CreateWorkflow() {
     setIsModalVisible(true);
   };
 
-  const handleOk = () => {
+  const Save = () => {
     setIsModalVisible(false);
   };
 
@@ -99,11 +99,12 @@ function CreateWorkflow() {
           <Modal
             title="Setup Employee"
             visible={isModalVisible}
-            onOk={handleOk}
+            onOk={Save}
             onCancel={handleCancel}
+            footer={null}
           >
             <Row>
-              <Col>
+              <Col span={6}>
                 <Upload
                   name="avatar"
                   listType="picture-card"
@@ -124,7 +125,7 @@ function CreateWorkflow() {
                   )}
                 </Upload>
               </Col>
-              <Col>
+              <Col span={18}>
                 <Form
                   name="basic"
                   labelCol={{ span: 8 }}
@@ -176,6 +177,14 @@ function CreateWorkflow() {
                   </Form.Item>
                 </Form>
               </Col>
+            </Row>
+            <Row>
+              <Button type="primary" className="savebtn" onClick={Save}>
+                Save
+              </Button>
+              <Button className="cancelbtn" onClick={handleCancel}>
+                Cancel
+              </Button>
             </Row>
           </Modal>
         </Col>

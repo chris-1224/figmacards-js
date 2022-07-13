@@ -14,7 +14,8 @@
   margin-right: 20px;
 }
 .tet {
-  margin-left: 0px !important;
+  margin-left: 68px !important;
+  margin-right: 40px;
   display: grid;
   /* display: flex;
   flex-wrap: wrap; */
@@ -31,13 +32,14 @@
   max-width: 70px !important;
   min-width: 50px !important;
   width: 200px !important;
+  position: fixed;
 }
 .Logo img {
   width: 70px;
   height: 70px;
 }
 .midicon {
-  margin-top: 120px;
+  margin-top: 80px;
 }
 .midicon img {
   width: 40px;
@@ -55,12 +57,15 @@
 .boticon {
   width: 50px;
   height: 50px;
-  margin: 60px 15px;
+  margin: 40px 15px;
 }
 .boticon img {
   margin-top: 20px;
 }
 .ant-layout-header {
+  height: 53px !important;
+  padding: 0 21px !important;
+  margin-left: 60px;
   background: rgb(214, 233, 255) !important;
 }
 .ant-layout {
@@ -134,13 +139,8 @@
   background: #00a0e9;
 }
 
-.ant-layout-header {
-  height: 53px !important;
-  padding: 0 21px !important;
-}
-
 .ant-row {
-  height: 150px !important;
+  /* height: 150px !important; */
   margin: 0 !important;
 }
 
@@ -163,11 +163,11 @@
   width: 38px;
 }
 .card2btn {
-  width: 120px !important;
+  width: 100px !important;
   float: right;
   margin-top: 10px !important;
-  margin-left: 10px !important;
-  margin-right: 10px !important;
+  margin-left: 5px !important;
+  margin-right: 25px !important;
   border-radius: 8px;
 }
 .card2hp {
@@ -189,4 +189,37 @@
 }
 .lefthead {
   margin-left: 10px;
+}
+.ant-form-item {
+  height: 50px;
+}
+.cancelbtn {
+  height: 35px !important;
+  margin-top: 20px;
+  border-radius: 5px;
+  margin-left: 10px;
+  width: 100px !important;
+}
+.savebtn {
+  height: 35px !important;
+  margin-left: 260px !important;
+  width: 100px !important;
+  font-weight: 600;
+}
+.ant-modal-content,
+.ant-modal-header {
+  border-radius: 15px !important;
+}
+
+.ant-upload.ant-upload-select-picture-card {
+  background-color: rgba(209, 220, 244);
+}
+
+.ant-modal-close-x {
+  height: 35px;
+  width: 35px;
+  background-color: rgb(209, 224, 255);
+  border-radius: 50px;
+  margin: 10px 10px;
+  line-height: 30px;
 }
