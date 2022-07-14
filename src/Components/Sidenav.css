@@ -4,11 +4,11 @@
   justify-content: space-between;
 }
 .abc1 {
-  height: 40px;
+  height: 35px;
   border-radius: 12px;
-  margin-left: 160px !important;
+  margin-left: 120px !important;
   width: 300px !important;
-  margin-top: 20px;
+  margin-top: 18px;
 }
 .abc2 {
   margin-right: 20px;
@@ -65,7 +65,10 @@
 .ant-layout-header {
   height: 53px !important;
   padding: 0 21px !important;
-  margin-left: 60px;
+  margin-left: 70px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
   background: rgb(214, 233, 255) !important;
 }
 .ant-layout {
@@ -88,7 +91,7 @@
 }
 .contentGrid {
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 25% 10% 25% 25%;
   gap: 20px !important;
   column-gap: 0px;
 }
@@ -144,7 +147,7 @@
   margin: 0 !important;
 }
 
-.ant-menu-vertical,
+/* .ant-menu-vertical,
 .ant-menu-item:not(:last-child),
 .ant-menu-vertical-left,
 .ant-menu-item:not(:last-child),
@@ -153,11 +156,17 @@
 .ant-menu-inline,
 .ant-menu-item:not(:last-child) {
   margin-bottom: 15px !important;
-}
+} */
 
 .ant-menu-inline.ant-menu-root .ant-menu-item,
 .ant-menu-inline.ant-menu-root .ant-menu-submenu-title {
   align-items: normal !important;
+}
+.site-card-border-less-wrapper {
+  display: block;
+}
+.hoverdis {
+  display: none;
 }
 .site-card-border-less-wrapper img {
   width: 38px;
@@ -167,11 +176,11 @@
   float: right;
   margin-top: 10px !important;
   margin-left: 5px !important;
-  margin-right: 25px !important;
+  margin-right: 15px !important;
   border-radius: 8px;
 }
 .card2hp {
-  font-size: 14px;
+  font-size: 12px;
 }
 .ant-layout-content {
   margin: 10px;
@@ -184,7 +193,7 @@
   margin-left: 180px !important;
 }
 .ant-btn-primary {
-  margin-left: 120px;
+  margin-left: 135px;
   border-radius: 8px;
 }
 .lefthead {
@@ -195,12 +204,13 @@
 }
 .cancelbtn {
   height: 35px !important;
-  margin-top: 20px;
+  margin-top: 120px;
   border-radius: 5px;
   margin-left: 10px;
   width: 100px !important;
 }
 .savebtn {
+  margin-top: 120px;
   height: 35px !important;
   margin-left: 260px !important;
   width: 100px !important;
@@ -216,10 +226,28 @@
 }
 
 .ant-modal-close-x {
-  height: 35px;
-  width: 35px;
+  height: 30px;
+  color: rgba(43, 120, 212, 1);
+  width: 30px;
   background-color: rgb(209, 224, 255);
   border-radius: 50px;
   margin: 10px 10px;
   line-height: 30px;
+}
+.empname {
+  border: 0 !important;
+  outline: 0 !important;
+  border-bottom: 1px solid rgba(43, 120, 212) !important;
+}
+.ant-modal-content {
+  height: 400px;
+}
+.viewdet .editbtn {
+  height: 35px !important;
+  margin-left: 130px;
+  width: 100px !important;
+  margin-top: 50px !important;
+}
+.viewdet .cancelbtn {
+  margin-top: 50px !important;
 }

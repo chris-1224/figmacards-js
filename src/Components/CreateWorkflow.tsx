@@ -9,6 +9,7 @@ import type { UploadChangeParam } from "antd/es/upload";
 import type { RcFile, UploadFile, UploadProps } from "antd/es/upload/interface";
 
 const { Header } = Layout;
+const { TextArea } = Input;
 
 const getBase64 = (img: RcFile, callback: (url: string) => void) => {
   const reader = new FileReader();
@@ -26,6 +27,11 @@ const beforeUpload = (file: RcFile) => {
     message.error("Image must smaller than 2MB!");
   }
   return isJpgOrPng && isLt2M;
+};
+
+// Text Area
+const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  console.log("Change:", e.target.value);
 };
 
 function CreateWorkflow() {
@@ -63,7 +69,7 @@ function CreateWorkflow() {
       });
     }
   };
-
+  // Image upload
   const uploadButton = (
     <div>
       {loading ? <LoadingOutlined /> : <PlusOutlined />}
@@ -79,11 +85,12 @@ function CreateWorkflow() {
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
   };
+
   return (
     <Header>
       <Row>
         <Col span={6}>
-          <p className="lefthead">Workflow</p>
+          <p className="lefthead">Workflows</p>
         </Col>
         <Col span={12}>
           <Input
@@ -146,7 +153,7 @@ function CreateWorkflow() {
                       },
                     ]}
                   >
-                    <Input />
+                    <Input className="empname" />
                   </Form.Item>
 
                   <Form.Item
@@ -160,7 +167,7 @@ function CreateWorkflow() {
                       },
                     ]}
                   >
-                    <Input />
+                    <Input className="empname" />
                   </Form.Item>
                   <Form.Item
                     className="Empdet"
@@ -173,7 +180,14 @@ function CreateWorkflow() {
                       },
                     ]}
                   >
-                    <Input />
+                    <TextArea
+                      showCount
+                      maxLength={100}
+                      style={{ height: 120 }}
+                      onChange={onChange}
+                      className="empname"
+                    />
+                    {/* <Input className="empname" /> */}
                   </Form.Item>
                 </Form>
               </Col>

@@ -1,7 +1,7 @@
 const cardDetails = [
   {
     id: 1,
-    icon: "img/i1.png",
+    icon: "img/i4.png",
     title: "GRN approval",
     desc_id: "WF_PO_PROCESSING_STD2",
     card1_p: "Leave application for admin approval",
