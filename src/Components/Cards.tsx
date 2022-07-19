@@ -120,7 +120,7 @@ const Cards = (props: card_det_props) => {
                           },
                         ]}
                       >
-                        <Input className="empname" />
+                        <Input className="empname" value={props.i} />
                       </Form.Item>
 
                       <Form.Item
@@ -134,7 +134,7 @@ const Cards = (props: card_det_props) => {
                           },
                         ]}
                       >
-                        <Input className="empname" />
+                        <Input className="empname" value={props.desc_id} />
                       </Form.Item>
                       <Form.Item
                         className="Empdet"
@@ -147,7 +147,7 @@ const Cards = (props: card_det_props) => {
                           },
                         ]}
                       >
-                        <Input className="empname" />
+                        <Input className="empname" value={props.card1_p} />
                       </Form.Item>
                     </Form>
                   </Col>

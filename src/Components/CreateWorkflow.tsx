@@ -11,6 +11,30 @@ import type { RcFile, UploadFile, UploadProps } from "antd/es/upload/interface";
 const { Header } = Layout;
 const { TextArea } = Input;
 
+// Local storage
+// const [employeeName, setEmployeeName] = useState("");
+// const [empdesignation, setEmployeeDesignation] = useState("");
+// const [employeedetails, setEmployeeDetails] = useState("");
+
+// let employeeDetail = JSON.parse(
+//   `${localStorage.getItem("employeeDetail") || "[]"}`
+// );
+
+// let payload: any = {
+//   name: employeeName,
+//   designation: empdesignation,
+//   employedetails: employeedetails,
+// };
+
+// employeeDetail.push(payload);
+
+// localStorage.setItem("employeeDetail", JSON.stringify(employeeDetail));
+
+// setEmployeeName("");
+// setEmployeeDesignation("");
+// setEmployeeDetails("");
+// setIsModalVisible(false);
+
 const getBase64 = (img: RcFile, callback: (url: string) => void) => {
   const reader = new FileReader();
   reader.addEventListener("load", () => callback(reader.result as string));
@@ -29,12 +53,12 @@ const beforeUpload = (file: RcFile) => {
   return isJpgOrPng && isLt2M;
 };
 
-// Text Area
-const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-  console.log("Change:", e.target.value);
-};
+// // Text Area
+// const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+//   console.log("Change:", e.target.value);
+// };
 
-function CreateWorkflow() {
+function CreateWorkflow({ refresh }) {
   // Modal code 2
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -42,8 +66,38 @@ function CreateWorkflow() {
     setIsModalVisible(true);
   };
 
+  // Local storage
+  const [employeeName, setEmployeeName] = useState("");
+  const [empdesignation, setEmployeeDesignation] = useState("");
+  const [employeedetails, setEmployeeDetails] = useState("");
+
   const Save = () => {
+    let employeeDetail = JSON.parse(
+      `${localStorage.getItem("employeeDetail") || "[]"}`
+    );
+
+    let payload: any = {
+      title: employeeName,
+      desc_id: empdesignation,
+      card1_p: employeedetails,
+      card2_p:
+        "This workflow is to enable an employee raise his leave request and get it approved it from him reporting manager",
+    };
+
+    employeeDetail.push(payload);
+
+    localStorage.setItem("employeeDetail", JSON.stringify(employeeDetail));
+
+    setEmployeeName("");
+    setEmployeeDesignation("");
+    setEmployeeDetails("");
     setIsModalVisible(false);
+    refresh();
+    // setIsModalVisible(false);
+
+    // const onFinish = (values: any) => {
+    //   console.log("Success:", values);
+    // };
   };
 
   const handleCancel = () => {
@@ -78,13 +132,13 @@ function CreateWorkflow() {
   );
 
   // Form item check
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
-  };
+  // const onFinish = (values: any) => {
+  //   console.log("Success:", values);
+  // };
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
-  };
+  // const onFinishFailed = (errorInfo: any) => {
+  //   console.log("Failed:", errorInfo);
+  // };
 
   return (
     <Header>
@@ -138,8 +192,8 @@ function CreateWorkflow() {
                   labelCol={{ span: 8 }}
                   wrapperCol={{ span: 16 }}
                   initialValues={{ remember: true }}
-                  onFinish={onFinish}
-                  onFinishFailed={onFinishFailed}
+                  // onFinish={onFinish}
+                  // onFinishFailed={onFinishFailed}
                   autoComplete="off"
                 >
                   <Form.Item
@@ -153,7 +207,13 @@ function CreateWorkflow() {
                       },
                     ]}
                   >
-                    <Input className="empname" />
+                    <Input
+                      className="empname"
+                      value={employeeName}
+                      onChange={(value: any) =>
+                        setEmployeeName(value.target.value)
+                      }
+                    />
                   </Form.Item>
 
                   <Form.Item
@@ -163,11 +223,16 @@ function CreateWorkflow() {
                     rules={[
                       {
                         required: true,
-                        message: "Enter your Role",
+                        message: "Enter your Role !!!",
                       },
                     ]}
                   >
-                    <Input className="empname" />
+                    <Input
+                      className="empname"
+                      onChange={(value: any) =>
+                        setEmployeeDesignation(value.target.value)
+                      }
+                    />
                   </Form.Item>
                   <Form.Item
                     className="Empdet"
@@ -176,7 +241,7 @@ function CreateWorkflow() {
                     rules={[
                       {
                         required: true,
-                        message: "Enter Details",
+                        message: "Enter Details !!!",
                       },
                     ]}
                   >
@@ -184,10 +249,12 @@ function CreateWorkflow() {
                       showCount
                       maxLength={100}
                       style={{ height: 120 }}
-                      onChange={onChange}
-                      className="empname"
+                      // onChange={onChange}
+                      onChange={(value: any) =>
+                        setEmployeeDetails(value.target.value)
+                      }
+                      className="inputtxtarea"
                     />
-                    {/* <Input className="empname" /> */}
                   </Form.Item>
                 </Form>
               </Col>
