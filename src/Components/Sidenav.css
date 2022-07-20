@@ -6,7 +6,7 @@
 .abc1 {
   height: 35px;
   border-radius: 12px;
-  margin-left: 120px !important;
+  margin-left: 130px !important;
   width: 300px !important;
   margin-top: 18px;
 }
@@ -248,7 +248,7 @@
 }
 .viewdet .editbtn {
   height: 35px !important;
-  margin-left: 140px;
+  margin-left: 150px;
   width: 100px !important;
   margin-top: 35px !important;
 }

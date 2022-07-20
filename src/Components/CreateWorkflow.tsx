@@ -11,30 +11,6 @@ import type { RcFile, UploadFile, UploadProps } from "antd/es/upload/interface";
 const { Header } = Layout;
 const { TextArea } = Input;
 
-// Local storage
-// const [employeeName, setEmployeeName] = useState("");
-// const [empdesignation, setEmployeeDesignation] = useState("");
-// const [employeedetails, setEmployeeDetails] = useState("");
-
-// let employeeDetail = JSON.parse(
-//   `${localStorage.getItem("employeeDetail") || "[]"}`
-// );
-
-// let payload: any = {
-//   name: employeeName,
-//   designation: empdesignation,
-//   employedetails: employeedetails,
-// };
-
-// employeeDetail.push(payload);
-
-// localStorage.setItem("employeeDetail", JSON.stringify(employeeDetail));
-
-// setEmployeeName("");
-// setEmployeeDesignation("");
-// setEmployeeDetails("");
-// setIsModalVisible(false);
-
 const getBase64 = (img: RcFile, callback: (url: string) => void) => {
   const reader = new FileReader();
   reader.addEventListener("load", () => callback(reader.result as string));
@@ -53,12 +29,15 @@ const beforeUpload = (file: RcFile) => {
   return isJpgOrPng && isLt2M;
 };
 
-// // Text Area
+// Text Area
 // const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
 //   console.log("Change:", e.target.value);
 // };
 
 function CreateWorkflow({ refresh }) {
+  // Reset Formfields
+  const [form] = Form.useForm();
+
   // Modal code 2
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -77,6 +56,7 @@ function CreateWorkflow({ refresh }) {
     );
 
     let payload: any = {
+      id: String(employeeDetail.length),
       title: employeeName,
       desc_id: empdesignation,
       card1_p: employeedetails,
@@ -93,11 +73,7 @@ function CreateWorkflow({ refresh }) {
     setEmployeeDetails("");
     setIsModalVisible(false);
     refresh();
-    // setIsModalVisible(false);
-
-    // const onFinish = (values: any) => {
-    //   console.log("Success:", values);
-    // };
+    form.resetFields();
   };
 
   const handleCancel = () => {
@@ -188,6 +164,7 @@ function CreateWorkflow({ refresh }) {
               </Col>
               <Col span={18}>
                 <Form
+                  form={form}
                   name="basic"
                   labelCol={{ span: 8 }}
                   wrapperCol={{ span: 16 }}
@@ -209,7 +186,7 @@ function CreateWorkflow({ refresh }) {
                   >
                     <Input
                       className="empname"
-                      value={employeeName}
+                      // value={employeeName}
                       onChange={(value: any) =>
                         setEmployeeName(value.target.value)
                       }
@@ -229,6 +206,7 @@ function CreateWorkflow({ refresh }) {
                   >
                     <Input
                       className="empname"
+                      value={empdesignation}
                       onChange={(value: any) =>
                         setEmployeeDesignation(value.target.value)
                       }
