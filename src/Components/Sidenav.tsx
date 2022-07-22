@@ -30,7 +30,6 @@ function Sidenav() {
     let employeeDetail = JSON.parse(
       `${localStorage.getItem("employeeDetail") || "[]"}`
     );
-
     setCardData(employeeDetail);
     setLoading(false);
   }, [loading]);
@@ -83,6 +82,8 @@ function Sidenav() {
                 <Row>
                   <Col span={6}>
                     <Cards
+                      refresh={refresh}
+                      id={card.id}
                       icon={card.icon}
                       title={card.title}
                       desc_id={card.desc_id}

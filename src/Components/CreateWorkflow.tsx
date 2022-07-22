@@ -29,11 +29,6 @@ const beforeUpload = (file: RcFile) => {
   return isJpgOrPng && isLt2M;
 };
 
-// Text Area
-// const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-//   console.log("Change:", e.target.value);
-// };
-
 function CreateWorkflow({ refresh }) {
   // Reset Formfields
   const [form] = Form.useForm();
@@ -55,8 +50,11 @@ function CreateWorkflow({ refresh }) {
       `${localStorage.getItem("employeeDetail") || "[]"}`
     );
 
+    const date = new Date();
+    const gen_Id = date.getTime();
+
     let payload: any = {
-      id: String(employeeDetail.length),
+      id: gen_Id,
       title: employeeName,
       desc_id: empdesignation,
       card1_p: employeedetails,
@@ -186,7 +184,7 @@ function CreateWorkflow({ refresh }) {
                   >
                     <Input
                       className="empname"
-                      // value={employeeName}
+                      value={employeeName}
                       onChange={(value: any) =>
                         setEmployeeName(value.target.value)
                       }
@@ -226,8 +224,8 @@ function CreateWorkflow({ refresh }) {
                     <TextArea
                       showCount
                       maxLength={100}
+                      value={employeedetails}
                       style={{ height: 120 }}
-                      // onChange={onChange}
                       onChange={(value: any) =>
                         setEmployeeDetails(value.target.value)
                       }

@@ -9,11 +9,13 @@ import "./Sidenav.css";
 const { Content } = Layout;
 
 type card_det_props = {
+  id: any;
   title: string;
   icon: string;
   description: string;
   card1_p: string;
   card2_p: string;
+  refresh: any;
 };
 
 const Cards = (props: card_det_props) => {
@@ -30,12 +32,57 @@ const Cards = (props: card_det_props) => {
     setIsModalVisible(true);
   };
 
-  const Save = () => {
+  // Fetching Data from local storage to card
+  const [employeeName, setEmployeeName] = useState(props.title);
+  const [empdesignation, setEmployeeDesignation] = useState(props.desc_id);
+  const [employeedetails, setEmployeeDetails] = useState(props.card1_p);
+
+  const Edit = () => {
+    let employeeDetail = JSON.parse(
+      `${localStorage.getItem("employeeDetail")}`
+    );
+    let data = employeeDetail.map((value: any) => {
+      if (
+        value.title === props.title &&
+        value.desc_id === props.desc_id &&
+        value.card1_p === props.card1_p
+      ) {
+        return {
+          ...value,
+          title: employeeName,
+          desc_id: empdesignation,
+          card1_p: employeedetails,
+        };
+      }
+      return value;
+    });
+    localStorage.setItem("employeeDetail", JSON.stringify(data));
+    props.refresh();
+    // window.localStorage.reload();
     setIsModalVisible(false);
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
+  };
+
+  // Delete card
+  const deleteCard = () => {
+    let employeeDetail = JSON.parse(
+      `${localStorage.getItem("employeeDetail")}`
+    );
+    for (let index = 0; index < employeeDetail.length; index++) {
+      if (props.id === employeeDetail[index].id) {
+        employeeDetail = [
+          ...employeeDetail.slice(0, index),
+
+          ...employeeDetail.slice(index + 1),
+        ];
+      }
+    }
+    localStorage.setItem("employeeDetail", JSON.stringify(employeeDetail));
+    props.refresh();
+    // window.localStorage.reload();
   };
 
   // Form item check
@@ -77,13 +124,15 @@ const Cards = (props: card_det_props) => {
               onMouseLeave={handleMousecard}
             >
               <p className="card2hp"> {props.card2_p} </p>
-              <Button className="dltbtn">Delete</Button>
+              <Button className="dltbtn" onClick={deleteCard}>
+                Delete
+              </Button>
               <Button type="primary" className="card2btn" onClick={showModal}>
                 View Details
               </Button>
               <Modal
                 visible={isModalVisible}
-                onOk={Save}
+                onOk={Edit}
                 onCancel={handleCancel}
                 className="viewdet"
                 footer={null}
@@ -109,51 +158,39 @@ const Cards = (props: card_det_props) => {
                       onFinishFailed={onFinishFailed}
                       autoComplete="off"
                     >
-                      <Form.Item
-                        className="EmpName"
-                        label="Employee Name"
-                        name="Enter Name"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Enter your Name !!!",
-                          },
-                        ]}
-                      >
-                        <Input className="empname" value={props.i} />
+                      <Form.Item className="EmpName" label="Employee Name">
+                        <Input
+                          className="empname"
+                          value={employeeName}
+                          onChange={(value: any) =>
+                            setEmployeeName(value.target.value)
+                          }
+                        />
                       </Form.Item>
 
-                      <Form.Item
-                        className="EmpDesg"
-                        label="Designation"
-                        name="Enter your Role"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Enter your Role",
-                          },
-                        ]}
-                      >
-                        <Input className="empname" value={props.desc_id} />
+                      <Form.Item className="EmpDesg" label="Designation">
+                        <Input
+                          className="empname"
+                          value={empdesignation}
+                          onChange={(value: any) =>
+                            setEmployeeDesignation(value.target.value)
+                          }
+                        />
                       </Form.Item>
-                      <Form.Item
-                        className="Empdet"
-                        label="Employee Details"
-                        name="Enter Details"
-                        rules={[
-                          {
-                            required: true,
-                            message: "Enter Details",
-                          },
-                        ]}
-                      >
-                        <Input className="empname" value={props.card1_p} />
+                      <Form.Item className="Empdet" label="Employee Details">
+                        <Input
+                          className="empname"
+                          value={props.card1_p}
+                          onChange={(value: any) =>
+                            setEmployeeDetails(value.target.value)
+                          }
+                        />
                       </Form.Item>
                     </Form>
                   </Col>
                 </Row>
                 <Row>
-                  <Button type="primary" className="editbtn" onClick={Save}>
+                  <Button type="primary" className="editbtn" onClick={Edit}>
                     Edit
                   </Button>
                   <Button className="cancelbtn" onClick={handleCancel}>
