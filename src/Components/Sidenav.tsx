@@ -6,7 +6,7 @@ import "./Sidenav.css";
 import { Col, Row } from "antd";
 
 import Cards from "./Cards.tsx";
-import cardDetails from "./Data.tsx";
+// import cardDetails from "./Data.tsx";
 
 import img1 from "../images/img1.svg";
 import img2 from "../images/img2.svg";
@@ -36,6 +36,11 @@ function Sidenav() {
 
   const refresh = () => {
     setLoading(true);
+  };
+
+  const searchcallbackdata = (Data: any) => {
+    console.log(Data);
+    setCardData(Data);
   };
 
   return (
@@ -74,7 +79,10 @@ function Sidenav() {
           </div>
         </Sider>
         <Layout>
-          <CreateWorkflow refresh={refresh} />
+          <CreateWorkflow
+            refresh={refresh}
+            searchcallbackdata={searchcallbackdata}
+          />
           <div className="tet">
             {dispData.map((card: any) => {
               // console.log(card.title);
@@ -84,7 +92,6 @@ function Sidenav() {
                     <Cards
                       refresh={refresh}
                       id={card.id}
-                      icon={card.icon}
                       title={card.title}
                       desc_id={card.desc_id}
                       card1_p={card.card1_p}

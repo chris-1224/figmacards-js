@@ -29,7 +29,7 @@ const beforeUpload = (file: RcFile) => {
   return isJpgOrPng && isLt2M;
 };
 
-function CreateWorkflow({ refresh }) {
+function CreateWorkflow({ refresh, searchcallbackdata }) {
   // Reset Formfields
   const [form] = Form.useForm();
 
@@ -44,6 +44,7 @@ function CreateWorkflow({ refresh }) {
   const [employeeName, setEmployeeName] = useState("");
   const [empdesignation, setEmployeeDesignation] = useState("");
   const [employeedetails, setEmployeeDetails] = useState("");
+  const [search, setSearch] = useState("");
 
   const Save = () => {
     let employeeDetail = JSON.parse(
@@ -105,6 +106,24 @@ function CreateWorkflow({ refresh }) {
     </div>
   );
 
+  const handleSearch = (e: any) => {
+    setSearch(e.target.value);
+    let searchValue = e.target.value;
+    let employeeDetail = JSON.parse(
+      `${localStorage.getItem("employeeDetail") || "[]"}`
+    );
+    if (searchValue.length > 2) {
+      let filtered = !searchValue
+        ? employeeDetail
+        : employeeDetail.filter((card: any) =>
+            card.title.toLowerCase().includes(searchValue.toLowerCase())
+          );
+      searchcallbackdata(filtered);
+    } else if (searchValue.length < 3) {
+      searchcallbackdata(employeeDetail);
+    }
+  };
+
   // Form item check
   // const onFinish = (values: any) => {
   //   console.log("Success:", values);
@@ -123,6 +142,8 @@ function CreateWorkflow({ refresh }) {
         <Col span={12}>
           <Input
             prefix={<SearchOutlined />}
+            value={search}
+            onChange={handleSearch}
             className="abc1"
             placeholder="Search a workflow"
           />

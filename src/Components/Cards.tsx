@@ -12,7 +12,7 @@ type card_det_props = {
   id: any;
   title: string;
   icon: string;
-  description: string;
+  desc_id: string;
   card1_p: string;
   card2_p: string;
   refresh: any;
@@ -21,6 +21,7 @@ type card_det_props = {
 const Cards = (props: card_det_props) => {
   // Card Hover
   const [isActive, setIsActive] = useState(true);
+
   const handleMousecard = () => {
     setIsActive((isActive) => !isActive);
   };
@@ -180,7 +181,7 @@ const Cards = (props: card_det_props) => {
                       <Form.Item className="Empdet" label="Employee Details">
                         <Input
                           className="empname"
-                          value={props.card1_p}
+                          value={employeedetails}
                           onChange={(value: any) =>
                             setEmployeeDetails(value.target.value)
                           }
